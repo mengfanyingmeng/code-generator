@@ -1,27 +1,45 @@
-package com;
+package com.third.controller;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import common.BizException;
+import com.third.common.BizException;
+import com.third.req.AmapProperties;
+import com.third.req.MapWeatherReq;
+import com.third.req.WeatherReq;
+import com.third.req.XinZhiWeatherReq;
+import com.third.resp.MapWeatherResp;
+import com.third.resp.WeatherResp;
+import com.third.resp.XinZhiWeatherResp;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import req.*;
-import resp.*;
-import util.JacksonUtil;
-import util.OkHttpUtil;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+import com.third.util.JacksonUtil;
+import com.third.util.OkHttpUtil;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static common.ExceptionEnum.WEATHER_NOW_RESULT_SIZE_ILLEGAL;
-
+import static com.third.common.ExceptionEnum.WEATHER_NOW_RESULT_SIZE_ILLEGAL;
 
 @Slf4j
+@RestController
 public class Weather {
+//    @Value("${xinzhi.weather.seniverse.secret.key}")
+//    private static String TIANQI_API_SECRET_KEY;
+//    @Value("${xinzhi.weather.seniverse.url.now}")
+//    private static String TIANQI_NOW_WEATHER_URL;
+//
+//    @Value("${map.weather.seniverse.secret.key}")
+//    private String TIANQI_API_SECRET_KEY1;
+//    @Value("${map.weather.seniverse.url.now}")
+//    private String TIANQI_NOW_WEATHER_URL1;
 
     private static String TIANQI_API_SECRET_KEY = "l69ka3qebirctpvj";
     private static String TIANQI_NOW_WEATHER_URL = "https://api.seniverse.com/v3/weather/now.json";
@@ -35,11 +53,11 @@ public class Weather {
 
     public WeatherResp getWeatherNow(WeatherReq req){
         WeatherResp weatherResp = new WeatherResp();
-
         return weatherResp;
     }
 
-    private static XinZhiWeatherResp getXinZhiWeather(XinZhiWeatherReq req){
+    @PostMapping("/weather/xinzhi/queryWeather")
+    public static XinZhiWeatherResp getXinZhiWeather(@RequestBody XinZhiWeatherReq req){
         String location = req.getLocation();
         XinZhiWeatherResp resp = new XinZhiWeatherResp();
         String params = "key=" + TIANQI_API_SECRET_KEY + "&location=" + location + "&language=zh-Hans&unit=c";
@@ -63,7 +81,8 @@ public class Weather {
         }
     }
 
-    private static MapWeatherResp getMapWeather(MapWeatherReq req){
+    @PostMapping("/weather/gaode/queryWeather")
+    public static MapWeatherResp getMapWeather(@RequestBody MapWeatherReq req){
         MapWeatherResp mapWeatherResp = new MapWeatherResp();
         String adcode = req.getAdcode();
         try {
@@ -115,15 +134,5 @@ public class Weather {
             resp.setCountry(country);
         }
         return resp;
-    }
-
-    public static void main(String[] args) {
-        XinZhiWeatherReq req = new XinZhiWeatherReq();
-        req.setLocation("wuxi");
-        XinZhiWeatherResp xinZhiWeather = getXinZhiWeather(req);
-
-        MapWeatherReq req1 = new MapWeatherReq();
-        req1.setAdcode("320500");
-        MapWeatherResp mapWeather = getMapWeather(req1);
     }
 }

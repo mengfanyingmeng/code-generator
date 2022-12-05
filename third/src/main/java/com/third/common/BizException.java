@@ -1,4 +1,4 @@
-package common;
+package com.third.common;
 
 
 import cn.hutool.core.util.StrUtil;

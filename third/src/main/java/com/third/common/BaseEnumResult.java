@@ -1,4 +1,4 @@
-package common;
+package com.third.common;
 
 /**
  * @author dudan

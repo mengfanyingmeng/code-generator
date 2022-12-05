@@ -1,4 +1,4 @@
-package util;
+package com.third.util;
 
 import lombok.Builder;
 import lombok.ToString;
