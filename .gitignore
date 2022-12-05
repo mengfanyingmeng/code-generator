@@ -1,0 +1,4 @@
+# Project exclude paths
+/method/target/
+/r-tree/target/
+/third/target/
