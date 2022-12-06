@@ -17,6 +17,7 @@
         <module>method</module>
         <module>r-tree</module>
         <module>third</module>
+        <module>proxy</module>
     </modules>
 
     <properties>

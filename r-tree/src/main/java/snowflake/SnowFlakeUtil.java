@@ -6,6 +6,7 @@ import java.util.Date;
 
 /**
  * 雪花算法
+ * 42位时间戳+5位dataCenterId+5位workId+12位同一毫秒内的递增的序列号
  */
 
 @Slf4j

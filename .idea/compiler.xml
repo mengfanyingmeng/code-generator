@@ -2,12 +2,14 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="method" />
         <module name="r-tree" />
+        <module name="proxy" />
+        <module name="method" />
         <module name="third" />
       </profile>
     </annotationProcessing>
@@ -15,6 +17,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="method" options="-parameters" />
+      <module name="proxy" options="-parameters" />
       <module name="r-tree" options="-parameters" />
       <module name="third" options="-parameters" />
     </option>
