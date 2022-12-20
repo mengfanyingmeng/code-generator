@@ -33,8 +33,8 @@ public class UploadFile {
         // Endpoint以华东1（杭州）为例，其它Region请按实际情况填写。
         String endpoint = "https://oss-cn-shanghai.aliyuncs.com";
         // 阿里云账号AccessKey拥有所有API的访问权限，风险很高。强烈建议您创建并使用RAM用户进行API访问或日常运维，请登录RAM控制台创建RAM用户。
-        String accessKeyId = "LTAI5t9EJiMVNqL8hErUf2VW";
-        String accessKeySecret = "CW0pBRucw67xWJz0isuoTOlmvGJSjo";
+        String accessKeyId = "LTW";
+        String accessKeySecret = "CW0pBRucw";
         // 填写Bucket名称，例如examplebucket。
         String bucketName = "examplebucket4";
         // 填写Object完整路径，完整路径中不能包含Bucket名称，例如exampledir/exampleobject.txt。
