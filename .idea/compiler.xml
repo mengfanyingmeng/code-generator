@@ -11,12 +11,14 @@
         <module name="proxy" />
         <module name="method" />
         <module name="third" />
+        <module name="oss" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="method" options="-parameters" />
+      <module name="oss" options="-parameters" />
       <module name="proxy" options="-parameters" />
       <module name="r-tree" options="-parameters" />
       <module name="third" options="-parameters" />

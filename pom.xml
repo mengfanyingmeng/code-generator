@@ -18,6 +18,7 @@
         <module>r-tree</module>
         <module>third</module>
         <module>proxy</module>
+        <module>oss</module>
     </modules>
 
     <properties>

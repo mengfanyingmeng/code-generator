@@ -1,5 +1,7 @@
 package bloomFilter;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 /**
  * 位图的部分源码
  */
@@ -50,16 +52,24 @@ public class BitSet1 {
 
     }
 
-    public static void main(String[] args) {
-        int wordIndex = wordIndex(66);
-        System.out.println(wordIndex);
-        System.out.println(Long.toBinaryString(wordIndex|(1l<<66)));
+    public static AtomicInteger num = new AtomicInteger(0);
+
+    public static void main(String[] args) throws InterruptedException {
         long l = System.currentTimeMillis();
-        System.out.println(256 << 22);
-        System.out.println(System.currentTimeMillis()-l);
-        long l1 = System.currentTimeMillis();
-        System.out.println(256*(2^22));
-        System.out.println(Math.abs(22));
-        System.out.println(System.currentTimeMillis()-l);
+        System.out.println(System.currentTimeMillis());
+        Runnable runnable=()->{
+            for (long i = 0; i < 1000000000; i++) {
+                num.getAndAdd(1);
+            }
+            System.out.println(Thread.currentThread().getName()+"执行结束!");
+        };
+
+        Thread t1 = new Thread(runnable);
+        Thread t2 = new Thread(runnable);
+        t1.start();
+        t2.start();
+        Thread.sleep(1000);
+        System.out.println("num = " + num);
+
     }
 }
