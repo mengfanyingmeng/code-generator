@@ -3,6 +3,6 @@ xinzhi:
   weather:
     seniverse:
       secret:
-        key: l69ka3qebirctpvj
+        key:
       url:
         now: https://api.seniverse.com/v3/weather/now.json
