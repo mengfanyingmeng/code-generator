@@ -41,10 +41,10 @@ public class Weather {
 //    @Value("${map.weather.seniverse.url.now}")
 //    private String TIANQI_NOW_WEATHER_URL1;
 
-    private static String TIANQI_API_SECRET_KEY = "l69ka3qebirctpvj";
+    private static String TIANQI_API_SECRET_KEY = "";
     private static String TIANQI_NOW_WEATHER_URL = "https://api.seniverse.com/v3/weather/now.json";
 
-    private static String TIANQI_API_SECRET_KEY1 = "7242b97a6e5688fa09725b2d1a05e83b";
+    private static String TIANQI_API_SECRET_KEY1 = "";
     private static String TIANQI_NOW_WEATHER_URL1 = "https://restapi.amap.com/v3/weather/weatherInfo";
 
     @Autowired

@@ -1,5 +1,8 @@
 oss:
   end-point: https://oss-cn-shanghai.aliyuncs.com
-  access-key-id: LTAI5t9EJiMVNqL8hErUf2VW
-  access-key-secret: CW0pBRucw67xWJz0isuoTOlmvGJSjo
+  access-key-id: LTAI5rUf2VW
+  access-key-secret: CW0pBRumvGJSjo
   bucket-name: examplebucket3
+
+
+
